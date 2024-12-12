@@ -10,10 +10,10 @@ import pickle
 WIN_WIDTH  = 500
 WIN_HEIGHT = 700
 
-BIRD_IMG  = [pygame.transform.scale2x(pygame.image.load(os.path.join(r"flappy_ai\imgs", "bird1.png"))), pygame.transform.scale2x(pygame.image.load(os.path.join(r"flappy_ai\imgs", "bird2.png"))), pygame.transform.scale2x(pygame.image.load(os.path.join(r"flappy_ai\imgs", "bird3.png")))]
-PIPE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join(r"flappy_ai\imgs", "pipe.png")))
-BASE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join(r"flappy_ai\imgs", "base.png")))
-BG_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join(r"flappy_ai\imgs", "bg.png")))
+BIRD_IMG  = [pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird1.png"))), pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird2.png"))), pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bird3.png")))]
+PIPE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "pipe.png")))
+BASE_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "base.png")))
+BG_IMG = pygame.transform.scale2x(pygame.image.load(os.path.join("imgs", "bg.png")))
 
 STAT_FONT = pygame.font.SysFont("comicsans", 50)
 
@@ -270,7 +270,7 @@ def main(genomes, config):
         base.move()
 
         if score > 20:
-            pickle.dump(nets[0],open(r"flappy_ai\best.pickle", "wb"))
+            pickle.dump(nets[0],open("best.pickle", "wb"))
             break
         
         draw_window(win, birds, pipes, base, score, GEN)
@@ -295,5 +295,5 @@ def run(configure_path):
 
 if __name__ == "__main__":
     #local_dir = os.path.dirname(files)
-    configure_path = os.path.join(r"flappy_ai\files", "config_feedforward_68c3f3d4a7.txt")
+    configure_path = os.path.join("files", "config_feedforward_68c3f3d4a7.txt")
     run(configure_path)
